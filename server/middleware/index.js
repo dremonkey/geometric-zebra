@@ -51,8 +51,7 @@ middleware = function (server, config) {
   // ## Prerender
   if (config.prerender.token) server.use(prerender.set('prerenderToken', config.prerender.token));
 
-  // ## Livereload 
-
+  // ## Livereload
   // if (config.livereload) {
   //   livereload(server, config);
   // }
