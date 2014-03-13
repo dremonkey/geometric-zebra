@@ -1,5 +1,5 @@
 {
-  "name": "particle-express-seed",
+  "name": "geometric-zebra-server",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -9,6 +9,7 @@
     "prerender-node": "~0.1.15",
     "lodash": "~2.4.1",
     "send": "~0.1.4",
+    "stripe": "~2.4.2",
     "when": "~2.7.0"
   },
   "devDependencies": {

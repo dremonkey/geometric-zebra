@@ -91,7 +91,7 @@ module.exports = function (grunt) {
       },
     },
 
-    // Automatically g browser
+    // Automatically open browser
     open: {
       all: {
         path: 'http://127.0.0.1:<%= express.options.port %>'
