@@ -68,7 +68,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <p>♥ for the Yeoman team whose yo angular generator was used to begin this</p>
+            <p>♥ for code</p>
           </div>
         </div>
       </div>
@@ -98,7 +98,13 @@
     <script src="app/common/services/utils.srv.js"></script>
     <script src="app/common/directives/skrollr.dir.js"></script>
 
-    <!-- home module -->
+    <!-- stripe module -->
+    <script src="app/stripe/module.js"></script>
+    <script src="app/stripe/controllers/checkout.ctrl.js"></script>
+    <script src="app/stripe/directives/checkout.dir.js"></script>
+    <script src="app/stripe/services/rest.srv.js"></script>
+
+    <!-- pages module -->
     <script src="app/pages/module.js"></script>
     <script src="app/pages/controllers/home.ctrl.js"></script>
     <script src="app/pages/controllers/base.ctrl.js"></script>
@@ -106,6 +112,9 @@
     <!-- endbuild -->
 
     <script src="scripts/app.templates.js"></script>
+
+    <!-- Stripe -->
+    <script src="https://checkout.stripe.com/checkout.js"></script>
 
     <!-- Google Analytics -->
     <script>

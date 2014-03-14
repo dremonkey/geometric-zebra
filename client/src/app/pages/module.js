@@ -10,5 +10,5 @@ angular.module('particle.pages', ['ui.router.compat', 'particle.pages.controller
       });
   });
 
-  angular.module('particle.pages.controllers', []);
-  angular.module('particle.pages.directives', []);
+angular.module('particle.pages.controllers', []);
+angular.module('particle.pages.directives', []);

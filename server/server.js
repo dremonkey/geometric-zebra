@@ -25,6 +25,7 @@ init = function (server) {
   // extract data from the body of the request
   server.use(express.bodyParser());
 
+  // looks for DELETE verbs in hidden fields
   server.use(express.methodOverride());
 
   // ## Middleware

@@ -2,12 +2,12 @@
 
 // ## Improves on console.log
 
-var log, colors;
+var colors;
 
 // Module Dependencies
 colors = require('colors');
 
-log = {
+module.exports = {
   info: function (info, context) {
     console.log('\nInfo:'.blue, info.blue);
     if (context) console.log(context.white);
@@ -32,5 +32,3 @@ log = {
     if (stack) console.error(stack, '\n');
   }
 };
-
-module.exports = log;

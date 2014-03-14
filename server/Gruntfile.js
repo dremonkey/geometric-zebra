@@ -45,7 +45,8 @@ module.exports = function (grunt) {
         files: [
           'server.js',
           'middleware/**/*.js',
-          'routes/**/*.js'
+          'routes/**/*.js',
+          'utils/**/*.js'
         ],
         tasks:  ['express:dev']
       },
