@@ -27,7 +27,7 @@ module.exports = function (server, stripe) {
       created: null,
       customer: null,
       offset: 0
-    }
+    };
 
     params = utils.params(req.body, defaults);
 
@@ -110,7 +110,7 @@ module.exports = function (server, stripe) {
         break;
       case 'capture':
 
-        var defaults = {
+        defaults = {
           amount: null,
           application_fee: null
         };
@@ -128,7 +128,7 @@ module.exports = function (server, stripe) {
         break;
       default:
 
-        var defaults = {
+        defaults = {
           description: null,
           metadata: null
         };

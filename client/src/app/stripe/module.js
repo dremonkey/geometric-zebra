@@ -13,7 +13,8 @@ angular.module('stripe', [
 ]);
 
 angular.module('stripe.controllers', [
-  'stripe.controllers.checkout'
+  // 'stripe.controllers.checkout'
+  'stripe.controllers.config'
 ]);
 
 angular.module('stripe.directives', [

@@ -8,4 +8,4 @@ module.exports = function (server, config) {
   require('./charges')(server, stripe);
   require('./customers')(server, stripe);
   // require('./subscriptions')(server, stripe);
-}
+};

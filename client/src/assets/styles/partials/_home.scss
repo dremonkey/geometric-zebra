@@ -1,1 +1,31 @@
-#home {}
+#home {
+
+  .config-form {
+    background: #f5f5f5;
+    margin: 30px 0;
+    border: 1px solid #ccc;
+    @include border-radius(5px);
+
+    fieldset {
+      padding: 0 30px 10px;
+
+      &.general-config {
+        h5 {
+          @include border-radius(5px 5px 0 0);
+        }
+      }
+
+      h5 {
+        margin: -1px -30px 20px;
+        padding: 15px 30px;
+        background: #e5e5e5;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+      }
+    }
+  }
+
+  .debug {
+    margin: 30px 0;
+  }
+}

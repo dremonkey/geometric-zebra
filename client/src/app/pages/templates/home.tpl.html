@@ -1,13 +1,85 @@
 <div class="container">
-   
-  <!-- <div stripe-checkout amounts="$30, $50, $100, Other"></div> -->
-  
-  <div stripe-checkout-button
-    name="LED Site"
-    description="1 year memebership ($100.00)"
-    amount="10000"
-    email="{{userEmail}}">
-    <button ng-click="submit()">Pay</button>
-  </div>
+  <div ng-controller="StripeConfigCtrl">
 
+    <div stripe-checkout-button>
+      <button class="btn btn-primary btn-lg" ng-click="submit(config)">Stripe Custom Pay Button</button>
+    </div>
+    
+    <form class="config-form form-horizontal">
+      
+      <fieldset class="general-config">
+        <h5>Company and Product Configurations</h5>
+        <div class="config-group form-group">
+          <label class="col-sm-3 control-label">Company Name</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="config.name" placeholder="Company" />
+          </div>
+        </div>
+        <div class="config-group form-group">
+          <label class="col-sm-3 control-label">Description</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="config.description" placeholder="Description of charge" />
+          </div>
+        </div>
+        <div class="config-group form-group">
+          <label class="col-sm-3 control-label">Amount in cents</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" ng-model="config.amount" placeholder="10000" />
+          </div>
+        </div>
+        <div class="config-group form-group">
+          <label class="col-sm-3 control-label">Currency</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" ng-model="config.currency" placeholder="USD" />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="user-config">
+        <h5>User Configurations</h5>
+        <div class="config-group form-group">
+          <label class="col-sm-3 control-label">Email</label>
+          <div class="col-sm-6">
+            <input type="email" class="form-control" ng-model="config.email" placeholder="User email" />
+          </div>
+        </div>
+      </fieldset>
+      
+      <fieldset class="form-config">
+        <h5>Form Configurations</h5>
+        <div class="config-group form-group">
+          <label class="col-sm-3 control-label">Panel Label</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="config.panelLabel" placeholder="Label for checkout pay button" />
+          </div>
+        </div>
+        <div class="config-group form-group">
+          <label class="col-sm-3 control-label">Checkout Type</label>
+          <div class="col-sm-9">
+            <div class="btn-group">
+                <button class="btn btn-default" ng-model="config.type" btn-radio="'Charge'">Charge</button>
+                <button class="btn btn-default" ng-model="config.type" btn-radio="'Subscription'">Subscription</button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-config">
+        <h5>Transaction Configurations</h5>
+        <div class="config-group form-group">
+          <label class="col-sm-3 control-label">Transaction ID</label>
+          <div class="col-sm-6">
+            <input type="email" class="form-control" ng-model="config.txn" placeholder="ch_103f572LBxto4zcW1cdKmcx1" />
+          </div>
+        </div>
+      </fieldset>
+
+    </form>
+
+    <div class="debug">
+      <h4>Debug: Config Model</h4>
+      <pre>{{config}}</pre>
+    </div>
+
+  </div>
 </div>
