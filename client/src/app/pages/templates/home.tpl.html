@@ -2,7 +2,7 @@
   <div ng-controller="StripeConfigCtrl">
 
     <div stripe-checkout-button>
-      <button class="btn btn-primary btn-lg" ng-click="submit(config)">Stripe Custom Pay Button</button>
+      <button class="btn btn-primary btn-lg" ng-click="submit(config)">Stripe Test Button</button>
     </div>
     
     <form class="config-form form-horizontal">
@@ -57,19 +57,42 @@
           <label class="col-sm-3 control-label">Checkout Type</label>
           <div class="col-sm-9">
             <div class="btn-group">
-                <button class="btn btn-default" ng-model="config.type" btn-radio="'Charge'">Charge</button>
-                <button class="btn btn-default" ng-model="config.type" btn-radio="'Subscription'">Subscription</button>
+                <button class="btn btn-default" ng-model="config.type" btn-radio="'charge'">Charge</button>
+                <button class="btn btn-default" ng-model="config.type" btn-radio="'subscribe'">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="config-group form-group">
+          <div>
+            <label class="col-sm-3 control-label">Action</label>
+            <div class="col-sm-9">
+              <div class="btn-group">
+                <!-- Shared Actions -->
+                <button class="btn btn-default" ng-model="config.action" btn-radio="'create'">Create</button>
+
+                <!-- Charge Specific Actions -->
+                <button ng-show="config.type === 'charge'" class="btn btn-default" ng-model="config.action" btn-radio="'list'">List</button>
+                <button ng-show="config.type === 'charge'" class="btn btn-default" ng-model="config.action" btn-radio="'retrieve'">Retrieve</button>
+                <button ng-show="config.type === 'charge'" class="btn btn-default" ng-model="config.action" btn-radio="'update'">Update</button>
+                <button ng-show="config.type === 'charge'" class="btn btn-default" ng-model="config.action" btn-radio="'refund'">Refund</button>
+              </div>
             </div>
           </div>
         </div>
       </fieldset>
 
       <fieldset class="form-config">
-        <h5>Transaction Configurations</h5>
-        <div class="config-group form-group">
-          <label class="col-sm-3 control-label">Transaction ID</label>
+        <h5>Required Request Parameters</h5>
+        <div class="config-group form-group" ng-show="config.type === 'charge' && (config.action === 'retrieve' || config.action === 'update' || config.action === 'refund' || config.action === 'capture')">
+          <label class="col-sm-3 control-label">Charge ID</label>
           <div class="col-sm-6">
-            <input type="email" class="form-control" ng-model="config.txn" placeholder="ch_103f572LBxto4zcW1cdKmcx1" />
+            <input type="text" class="form-control" ng-model="config.chID" placeholder="ch_103f572LBxto4zcW1cdKmcx1" />
+          </div>
+        </div>
+        <div class="config-group form-group" ng-show="config.type === 'subscribe' && config.action === 'create'">
+          <label class="col-sm-3 control-label">Plan</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="config.plan" placeholder="Subscription Plan Name" />
           </div>
         </div>
       </fieldset>

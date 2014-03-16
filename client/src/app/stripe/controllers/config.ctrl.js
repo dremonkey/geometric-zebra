@@ -21,9 +21,11 @@ angular.module('stripe.controllers.config', [])
       panelLabel: 'Pay',
       currency: 'USD',
       type: 'charge',
+      action: 'create',
 
-      // Transaction Config
-      txn: ''
+      // Required Parameters
+      chID: '', // charge ID
+      plan: '', // subscription plan identifier
     };
     
     $scope.config = config;
