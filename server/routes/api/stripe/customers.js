@@ -112,10 +112,22 @@ module.exports = function (server, stripe) {
 
   // Delete a customer
   server.del('/api/stripe/customers/:id', function (req, res) {
-    res.json({
-      route: req.route,
-      params: req.params,
-      query: req.query
+    var id;
+
+    id = req.params.id;
+
+    stripe.customers.del(id, function (err, confirmation) {
+      if (err) {
+        errorHandler(err, res);
+        return;
+      }
+
+      res.json(confirmation);
+      // res.json({
+      //   route: req.route,
+      //   params: req.params,
+      //   query: req.query
+      // });
     });
   });
 };

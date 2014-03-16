@@ -7,5 +7,5 @@ module.exports = function (server, config) {
   // Initialize Stripe routes
   require('./charges')(server, stripe);
   require('./customers')(server, stripe);
-  // require('./subscriptions')(server, stripe);
+  require('./subscriptions')(server, stripe);
 };
